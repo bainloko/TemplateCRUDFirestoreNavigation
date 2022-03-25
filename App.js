@@ -5,6 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Escrever from './screens/Escrever'
+import Listar from './screens/Listar'
 
 function HomeScreen({ navigation }) {
   return (
@@ -31,6 +32,11 @@ function EscreverScreen({ navigation }) {
   );
 }
 
+function ListarScreen({ navigation }) {
+  return (
+    <Listar></Listar>
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -41,6 +47,7 @@ export default function App() {
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
         <Drawer.Screen name="Escrever" component={EscreverScreen} />
+        <Drawer.Screen name="Listar" component={ListarScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

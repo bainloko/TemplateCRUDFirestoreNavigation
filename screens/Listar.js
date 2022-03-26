@@ -1,20 +1,34 @@
 import React ,{useState, useEffect} from 'react'
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import {ActivityIndicator, SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 import { auth,firestore } from '../firebase'
-// const DATA = [
-//   {
-//     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-//     title: 'First Item',
-//   },
-//   {
-//     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-//     title: 'Second Item',
-//   },
-//   {
-//     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-//     title: 'Third Item',
-//   },
-// ];
+
+const Listar = () => {
+  const [loading, setLoading] = useState(true); // Set loading to true on component mount
+  const [gatos, setGatos] = useState([]); // Initial empty array of users
+
+  useEffect(() => {
+    const subscriber = firestore.collection('Gato')
+      .onSnapshot(querySnapshot => {
+        const gatos = [];
+  
+        querySnapshot.forEach(documentSnapshot => {
+          gatos.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.nome,
+          });
+        });
+  
+        setGatos(gatos);
+        setLoading(false);
+      });
+  
+    // Unsubscribe from events when no longer in use
+    return () => subscriber();
+  }, []);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
 const Item = ({ nome }) => (
   <View style={styles.item}>
@@ -22,34 +36,54 @@ const Item = ({ nome }) => (
   </View>
 );
 
-const App = () => {
-  
-  const [gatos, setGatos]=useState([]);
-  
-  useEffect(()=>{
-
-    getGatos()
-  },[])
+ 
 
   const renderItem = ({ item }) => <Item nome={item.nome} />;
 
-  const getGatos= ()=>{
-    firestore
-    .collection('Gato')
-    .onSnapshot(querySnapshot=>{
-      querySnapshot.forEach(documentSnapshot=>{
-        gatos.push({...documentSnapshot.data(),
-          key: documentSnapshot.nome,
-        });
-      });
-      setGatos(gatos);
-      // setCarregando(false);
-    });
-    // return()=>subscriber();
-  };
+  // const getGatos= ()=>{
+  //   setGatos([]);
+  //   firestore
+  //   .collection('Gato')
+  //   .onSnapshot(querySnapshot=>{
+  //     //querySnapshot.forEach(documentSnapshot=>{
+  //     querySnapshot.docChanges().forEach(change=>{
+        
+  //       gatos.push({...change.doc.data(),
+  //         key: change.nome,
+  //       });
+  //     });
+  //     setGatos(gatos);
+  //     // setCarregando(false);
+  //   });
+  //   // return()=>subscriber();
+  // };
+
+  // // const observador = firestore.collection('Gato')
+  // // .onSnapshot(querySnapshot => {
+  // //   querySnapshot.docChanges().forEach(change => {
+  // //     if (change.type === 'added') {
+  // //       console.log('Novo Gato: ', change.doc.data());
+  // //     }
+  // //     if (change.type === 'modified') {
+  // //       console.log('Gato modificado: ', change.doc.data());
+  // //     }
+  // //     if (change.type === 'removed') {
+  // //       console.log('Gato removido: ', change.doc.data());
+  // //     }
+  // //   });
+  // // });
+
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList data={gatos} renderItem={renderItem} keyExtractor={item => item.nome} />
+      <FlatList 
+      data={gatos} 
+      renderItem={renderItem} 
+      keyExtractor={item => item.nome} 
+      // refreshing={true}
+      // onRefresh={() => {
+      //   getGatos();
+      // }}
+      />
     </SafeAreaView>
   );
 };
@@ -70,4 +104,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Listar;

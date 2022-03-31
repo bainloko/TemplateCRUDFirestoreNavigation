@@ -6,6 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Escrever from './screens/Escrever'
 import Listar from './screens/Listar'
+import ListarComFiltro from './screens/ListarComFiltro'
+import ListarComFiltroGatos from './screens/ListarComFiltroGatos'
 
 function HomeScreen({ navigation }) {
   return (
@@ -32,11 +34,26 @@ function EscreverScreen({ navigation }) {
   );
 }
 
+
 function ListarScreen({ navigation }) {
   return (
     <Listar></Listar>
   );
 }
+
+
+function ListaComFiltroScreen({ navigation }) {
+  return (
+    <ListarComFiltro></ListarComFiltro>
+  );
+}
+
+function ListaComFiltroGatosScreen({ navigation }) {
+  return (
+    <ListarComFiltroGatos></ListarComFiltroGatos>
+  );
+}
+
 
 const Drawer = createDrawerNavigator();
 
@@ -48,6 +65,8 @@ export default function App() {
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
         <Drawer.Screen name="Escrever" component={EscreverScreen} />
         <Drawer.Screen name="Listar" component={ListarScreen} />
+        <Drawer.Screen name="Lista Com Filtro Gatos" component={ListaComFiltroGatosScreen} />
+        <Drawer.Screen name="Lista Com Filtro" component={ListaComFiltroScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

@@ -31,10 +31,10 @@ const Escrever = () => {
 
   return (
     <KeyboardAvoidingView
-      style={MeuEstilo.container}
+      style={MeuEstilo.containerlistar}
       behavior="padding"
     >
-      <View style={MeuEstilo.inputContainer}>
+      <View style={MeuEstilo.inputcontainerlistar}>
         <TextInput
           placeholder="Nome"
           value={nome}
@@ -56,7 +56,7 @@ const Escrever = () => {
        
       </View>
 
-      <View style={MeuEstilo.buttonContainer}>
+      <View style={MeuEstilo.buttoncontainerlistar}>
         <TouchableOpacity
           onPress={enviarDados}
           style={MeuEstilo.button}

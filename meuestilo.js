@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet, StatusBar} from 'react-native'
 export default StyleSheet.create({
     container: {
         flex: 1,
@@ -45,4 +45,45 @@ export default StyleSheet.create({
         fontSize: 16,
       },
   
+
+      //ESTILO DO LISTAR
+      containerlistar: {
+        flex: 1,
+        marginTop: StatusBar.currentHeight || 0,
+      },
+      item: {
+        backgroundColor: 'white',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderColor: '#0782F9',
+        borderWidth: 2,
+        borderRadius: 10,
+      },
+      title: {
+        fontSize: 16,
+        color: '#0782F9',
+        fontWeight: '700',
+      },
+
+      // ESTILO DA LISTAGEM COM FILTRO
+      containerlistarcomfiltro: {
+        paddingTop: 40,
+        backgroundColor: 'white',
+      },
+
+      itemStyle: {
+        backgroundColor: '#0066CC',
+        padding: 10,
+        marginVertical: 8,
+        marginHorizontal: 10,
+        color: 'white',
+      },
+      textInputStyle: {
+        height: 40,
+        borderWidth: 1,
+        paddingLeft: 20,
+        margin: 5,
+        borderColor: '#0066CC',
+      },
 })

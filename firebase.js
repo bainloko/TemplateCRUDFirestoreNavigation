@@ -18,7 +18,7 @@ import "firebase/compat/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   
-  coloque aqui suas configurações
+  apiKey: "AIzaSyC5PpsbnndLOEgEuJv0tnPCCBrAHycaX6k",
 
   authDomain: "exemplo-video-11aa2.firebaseapp.com",
 

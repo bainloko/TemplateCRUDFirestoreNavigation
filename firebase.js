@@ -1,36 +1,22 @@
 // Import the functions you need from the SDKs you need
 //import * as firebase from "firebase
-//import * as firebase from "firebase/app";
 import firebase from "firebase/compat/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-
-// cada produto do firebase deve ser importad separadamente
+//cada produto do firebase deve ser importado separadamente
 //por exemplo auth de autenticação
 import "firebase/compat/auth";
-
 import "firebase/compat/firestore";
-
-
-
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  
-  apiKey: "AIzaSyC5PpsbnndLOEgEuJv0tnPCCBrAHycaX6k",
-
-  authDomain: "exemplo-video-11aa2.firebaseapp.com",
-
-  projectId: "exemplo-video-11aa2",
-
-  storageBucket: "exemplo-video-11aa2.appspot.com",
-
-  messagingSenderId: "1072364039124",
-
-  appId: "1:1072364039124:web:5aade8996a5df8fd1cc441"
-
-
+  apiKey: "AIzaSyB7HiCsS5tZXW3oSVa8Ei_ICwxN4Wmby5U",
+  authDomain: "crudfirestorenavigation.firebaseapp.com",
+  projectId: "crudfirestorenavigation",
+  storageBucket: "crudfirestorenavigation.appspot.com",
+  messagingSenderId: "518830825086",
+  appId: "1:518830825086:web:b2a8912d226df4d8f0c22f"
 };
 
 // Initialize Firebase

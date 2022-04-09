@@ -1,24 +1,13 @@
-import 'react-native-gesture-handler'
 import * as React from 'react';
 import { Button, View } from 'react-native';
+import 'react-native-gesture-handler';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Escrever from './screens/Escrever'
-import Listar from './screens/Listar'
-import ListarComFiltro from './screens/ListarComFiltro'
-import ListarComFiltroGatos from './screens/ListarComFiltroGatos'
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
+import Escrever from './screens/Escrever';
+import Listar from './screens/Listar';
+import ListarComFiltro from './screens/ListarComFiltro';
+import ListarComFiltroGatos from './screens/ListarComFiltroGatos';
 
 function NotificationsScreen({ navigation }) {
   return (
@@ -34,13 +23,11 @@ function EscreverScreen({ navigation }) {
   );
 }
 
-
 function ListarScreen({ navigation }) {
   return (
     <Listar></Listar>
   );
 }
-
 
 function ListaComFiltroScreen({ navigation }) {
   return (
@@ -53,7 +40,6 @@ function ListaComFiltroGatosScreen({ navigation }) {
     <ListarComFiltroGatos></ListarComFiltroGatos>
   );
 }
-
 
 const Drawer = createDrawerNavigator();
 

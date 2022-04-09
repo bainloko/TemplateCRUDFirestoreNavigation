@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
-import {  View,  Text,  TextInput,  TouchableOpacity,  KeyboardAvoidingView
-} from 'react-native';
-import MeuEstilo from '../meuestilo'
-import { auth,firestore } from '../firebase'
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import MeuEstilo from '../meuestilo';
+import { auth, firestore } from '../firebase';
 
 const Escrever = () => {
-  const [nome, setNome] = useState('')
-  const [raca, setRaca] = useState('')
-  const [cor, setCor] = useState('')
-  
+  const [nome, setNome] = useState('');
+  const [raca, setRaca] = useState('');
+  const [cor, setCor] = useState('');
 
   const enviarDados = () => {
-     firestore
-     .collection('Gato')
-     .add({
-       nome: nome,
-       raca: raca, 
-       cor: cor, 
-     })
-     .then(() => {
-       alert('Gato '+nome+' Adicionado com Sucesso')
-       
-     });
-    
+    firestore
+    .collection('Gato')
+    .add({
+      nome: nome,
+      raca: raca, 
+      cor: cor, 
+    })
+    .then(() => {
+      alert('Gato ' + nome + ' Adicionado com Sucesso');
+    });
   }
 
   const limparFormulario = () => {
@@ -47,15 +43,13 @@ const Escrever = () => {
           onChangeText={text => setRaca(text)}
           style={MeuEstilo.input}
         />
-          <TextInput
+        <TextInput
           placeholder="Cor"
           value={cor}
           onChangeText={text => setCor(text)}
           style={MeuEstilo.input}
         />
-       
       </View>
-
       <View style={MeuEstilo.buttoncontainerlistar}>
         <TouchableOpacity
           onPress={enviarDados}
@@ -73,5 +67,5 @@ const Escrever = () => {
     </KeyboardAvoidingView>
   );
 };
-export default Escrever
 
+export default Escrever;

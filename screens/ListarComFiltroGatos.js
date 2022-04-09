@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   ActivityIndicator,
   SafeAreaView,
   Text,
-  MeuEstiloheet,
+  StyleSheet,
   View,
   FlatList,
   TextInput,
-  StatusBar,
 } from 'react-native';
-import { auth,firestore } from '../firebase'
+import { auth, firestore } from '../firebase';
 import MeuEstilo from '../meuestilo';
 
 const ListaComFiltroGatos = () => {
@@ -19,7 +18,6 @@ const ListaComFiltroGatos = () => {
   const [gatos, setGatos] = useState([]);
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
   
-
   useEffect(() => {
     const subscriber = firestore.collection('Gato')
       .onSnapshot(querySnapshot => {

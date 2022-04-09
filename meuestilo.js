@@ -1,4 +1,4 @@
-import {StyleSheet, StatusBar} from 'react-native'
+import { StyleSheet, StatusBar } from 'react-native';
 export default StyleSheet.create({
   container: {
       flex: 1,

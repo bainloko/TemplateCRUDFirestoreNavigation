@@ -18,7 +18,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-web": "~0.18.9",
     "react-native-gesture-handler": "~2.1.0",
-    "react-native-reanimated": "~2.3.1",
+    "react-native-reanimated": "3.0.0-rc.3",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "@expo/ngrok": "^2.4.3"
